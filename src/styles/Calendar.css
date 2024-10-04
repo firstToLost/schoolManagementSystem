@@ -1,0 +1,74 @@
+/* Calendar.css */
+.calendar {
+  display: grid;
+  gap: 2px; /* Add gap between cells */
+  grid-template-columns: repeat(
+    7,
+    60px
+  ); /* 7 columns for the days of the week */
+  max-width: max-content;
+
+  background: rgba(255, 255, 255, 0.1); /* Glass effect */
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 10px; /* Padding around the grid */
+}
+
+.calendar-header {
+  grid-column: span 7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Glass effect */
+}
+
+.calendar-days,
+.calendar-body {
+  display: contents;
+}
+
+.calendar-day,
+.calendar-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%; /* Make cells circular */
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.3); /* Glass effect */
+}
+
+.calendar-day {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2); /* Glass effect for headers */
+}
+
+.calendar-cell {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  cursor: pointer;
+}
+
+.calendar-cell.weekend {
+  background: rgba(255, 255, 255, 0.1); /* Darker background for weekends */
+  cursor: not-allowed; /* Disable pointer cursor for weekends */
+  opacity: 0.5; /* Slightly faded look for weekends */
+}
+
+.empty {
+  background: transparent;
+}
+
+.present {
+  border: 1px solid rgb(0, 255, 0);
+}
+
+.absent {
+  border: 1px solid rgb(255, 0, 0);
+}
+
+.calendar-day-number {
+  font-size: 16px;
+  z-index: 1; /* Ensure day numbers are visible above the indicator */
+}

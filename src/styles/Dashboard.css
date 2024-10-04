@@ -1,0 +1,12 @@
+@media (min-width: 640px) {
+  .grid-template-dashboard {
+    grid-template-columns: max-content 1fr;
+  }
+}
+
+.bg-dashboard {
+  background: url("/bg.png");
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h-main {
+  height: calc(100% - 36px);
+}
+.aspect-3\/4 {
+  aspect-ratio: 3 / 4;
+}
+
+.input-label {
+  @apply text-base block mb-2 font-bold text-primary;
+}
+
+.input {
+  @apply border w-full outline-none px-4 py-2 rounded;
+}
+
+/* Input style */
+
+.input option {
+  color: black;
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent background */
+}
+
+
+.input:focus {
+  border-color: #00aaff; /* change border color on focus */
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.5); /* subtle glow effect */
+}
+
+/* Spinner */
+
+.spinner {
+  --hue: 223;
+  --bg: hsl(var(--hue), 10%, 90%);
+  --fg: hsl(var(--hue), 10%, 10%);
+  font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+}
+
+.pl {
+  display: block;
+  width: 6.25em;
+  height: 6.25em;
+}
+.pl__ring,
+.pl__ball {
+  animation: ring 2s ease-out infinite;
+}
+.pl__ball {
+  animation-name: ball;
+}
+
+/* Dark theme  */
+@media (prefers-color-scheme: dark) {
+  .spinner {
+    --bg: hsl(var(--hue), 10%, 10%);
+    --fg: hsl(var(--hue), 10%, 90%);
+  }
+}
+
+/* Animation */
+@keyframes ring {
+  from {
+    stroke-dasharray: 0 257 0 0 1 0 0 258;
+  }
+  25% {
+    stroke-dasharray: 0 0 0 0 257 0 258 0;
+  }
+  50%,
+  to {
+    stroke-dasharray: 0 0 0 0 0 515 0 0;
+  }
+}
+@keyframes ball {
+  from,
+  50% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: 1;
+  }
+  64% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -109;
+  }
+  78% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -145;
+  }
+  92% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -157;
+  }
+  57%,
+  71%,
+  85%,
+  99%,
+  to {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -163;
+  }
+}
+
+/* Custom Styles */
+* {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+body {
+  @apply bg-light-bg min-h-screen w-full overflow-x-hidden;
+}
+
+main {
+  @apply min-h-screen;
+}
+
+main > section#hero {
+  @apply pt-[68px];
+}
+
+section {
+  overflow: hidden;
+}
+
+.btn-primary {
+  @apply bg-primary text-white py-2 px-4 rounded select-none;
+}
+
+.btn-outline {
+  @apply text-primary py-2 px-4 rounded border border-primary select-none;
+}
+
+.btn-outline:hover {
+  @apply bg-primary text-white;
+}

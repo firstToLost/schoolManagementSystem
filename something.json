@@ -1,0 +1,34 @@
+{
+  "student_info": {
+    "first_name": "string",
+    "middle_name": "string",
+    "last_name": "string",
+    "gender": "choice (male or female) ",
+    "age": "integer",
+    "grade": "string (NOT INTEGER)",
+    "kebele": "the name of the kebele",
+    "mender": "integer (number of mender)"
+  },
+  "images": [
+    {
+      "image_type": "choice ('student_image','admittance','letter' or 'history')",
+      "image": "IMAGE (.jpeg , .png , .svg ....)"
+    },
+    {
+      "image_type": "the same as the above",
+      "image": "the same as the above"
+    }
+  ],
+  "gurdians": [
+    {
+      "guradin_id": "str :the unique id of the guardian",
+      "guardian_pk": "int: primary_key of the guardian",
+      "relation": "choice('father','mother',......'other')"
+    },
+    {
+      "guradin_id": "str :the unique id of the guardian",
+      "guardian_pk": "int: primary_key of the guardian",
+      "relation": "choice('father','mother',......'other')"
+    }
+  ]
+}

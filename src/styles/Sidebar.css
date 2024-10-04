@@ -1,0 +1,30 @@
+.sidebar {
+  transition: all 350ms ease;
+}
+
+.sidebar:hover .nav__link-text,
+.sidebar:hover .p-name {
+  display: block;
+  width: max-content;
+}
+.sidebar:hover .nav__link-icon {
+  margin-inline-end: 0.5rem;
+}
+.sidebar:hover .profile {
+  justify-content: unset;
+}
+
+.sidebar:hover .nav__link {
+  justify-content: flex-start;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.25) 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.25) 75%
+  );
+}

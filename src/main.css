@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+a {
+  text-decoration: none;
+}
+.btn {
+  color: white;
+  border: 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  background: linear-gradient(310deg, rgb(0, 117, 255), rgb(33, 212, 253));
+  padding: 0.65em 1em;
+  gap: 10px;
+  cursor: pointer;
+}
+
+fieldset {
+  border: none;
+}
