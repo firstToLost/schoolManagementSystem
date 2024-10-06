@@ -131,7 +131,7 @@ export default function Sidebar() {
     <aside
       className={`${
         isSidebarOpen ? "translate-x-10" : "-translate-x-full"
-      } sidebar bg-white w-[250px] hover:w-[250px] rounded-2xl h-max sm:h-auto absolute top-1/2 -translate-y-1/2  sm:static sm:rounded-none sm:w-[85px] z-5 sm:translate-x-0 sm:translate-y-0 overflow-x-hidden overflow-y-scroll scrollbar-hidden  border border-[#e4e4e7] shadow`}
+      } sidebar bg-white z-100 w-[250px] hover:w-[250px] rounded-2xl h-max sm:h-auto absolute top-1/2 -translate-y-1/2  sm:static sm:rounded-none sm:w-[85px] z-5 sm:translate-x-0 sm:translate-y-0 overflow-x-hidden overflow-y-scroll scrollbar-hidden  border border-[#e4e4e7] shadow`}
     >
       <div className="flex items-center gap-3 px-2 py-4 relative profile sm:justify-center">
         <img
