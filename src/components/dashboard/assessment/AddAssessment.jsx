@@ -3,7 +3,7 @@ import { api } from "../../../api/axios";
 
 import { useNavigate } from "react-router-dom";
 
-export default function AssessmentHome() {
+export default function AddAssessment() {
   const navigate = useNavigate();
   const initialValues = {
     title: "",
@@ -17,15 +17,15 @@ export default function AssessmentHome() {
 
   const onSubmit = async (values) => {
     try {
-      const response = await api.post("/assessment", {
-        subject: values.subject,
-        grade: values.grade,
-        section: values.section,
-        school_year: values.school_year,
-        term: values.term,
-        out_of: values.out_of
-      });
-      console.log(response);
+      // const response = await api.post("/assessment", {
+      //   subject: values.subject,
+      //   grade: values.grade,
+      //   section: values.section,
+      //   school_year: values.school_year,
+      //   term: values.term,
+      //   out_of: values.out_of,
+      // });
+      // console.log(response);
       navigate("/dashboard/assessment/upload", {
         state: {
           values,
@@ -116,7 +116,7 @@ export default function AssessmentHome() {
             </label>
             <Field name="out_of" className="input" id="out-of" type="number" />
           </div>
-          <button className="btn">submit</button>
+          <button className="btn-primary">submit</button>
         </Form>
       </Formik>
     </div>

@@ -233,7 +233,9 @@ export default function Assessment() {
       >
         <AiOutlinePlus />
       </button>
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="btn-primary" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 }

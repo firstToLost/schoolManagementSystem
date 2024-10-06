@@ -43,11 +43,14 @@ import UploadFile from "./components/dashboard/result/UploadFile";
 import ScheduleNew from "./components/dashboard/schedule/ScheduleNew";
 import Schedule from "./components/dashboard/schedule/Schedule";
 
+import Assessments from "./components/dashboard/assessment/Assessments";
 import Assessment from "./components/dashboard/assessment/Assessment";
-import AssessmentHome from "./components/dashboard/assessment/AssessmentHome";
+
+import AddAssessment from "./components/dashboard/assessment/AddAssessment";
 
 import StudentsHome from "./components/dashboard/students/StudentsHome";
 import StudentProfile from "./components/dashboard/students/StudentProfile";
+import Students from "./components/dashboard/students/Students";
 
 import Attendance from "./components/dashboard/attendance/Attendance";
 import FillAttendance from "./components/dashboard/attendance/FillAttendance";
@@ -104,7 +107,7 @@ export default function App() {
                 </Route>
 
                 <Route path="students" element={<Tunnel />}>
-                  <Route path="" element={<StudentsHome />} />
+                  <Route path="" element={<Students />} />
                   <Route path="profile" element={<StudentProfile />} />
                 </Route>
                 <Route path="academic" element={<Tunnel />}>
@@ -140,8 +143,10 @@ export default function App() {
                 </Route>
 
                 <Route path="assessment" element={<Tunnel />}>
+                  <Route path="" element={<Assessments />} />
                   <Route path="upload" element={<Assessment />} />
-                  <Route path="" element={<AssessmentHome />} />
+
+                  <Route path="add" element={<AddAssessment />} />
                 </Route>
 
                 <Route path="upload" element={<DashboardUpload />} />

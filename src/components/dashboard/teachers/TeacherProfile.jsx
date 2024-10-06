@@ -1,6 +1,12 @@
 import joker from "/joker.jpg";
+import { useState } from "react";
+import Modal from "../../Modal";
+import { Formik, Form, Field } from "formik";
+import GradeDropdown from "../../GradeDropdown";
 
 export default function TeacherProfile() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const examData = [
     {
       label: "First Name:",
@@ -35,6 +41,77 @@ export default function TeacherProfile() {
   ];
   return (
     <div className="p-3 flex gap-4">
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <Formik>
+          {({ values }) => (
+            <Form className="rounded-md w-[300px] p-4 bg-babyBlue-bg">
+              <fieldset>
+                <div className="my-2">
+                  <label className="input-label" htmlFor="upload-type">
+                    Assign To semester
+                  </label>
+                  <Field
+                    type="text"
+                    id="upload-type"
+                    className="input w-full"
+                    name="to"
+                    as="select"
+                  >
+                    <option value="assignment">All</option>
+                    <option value="work-sheets">1</option>
+                    <option value="Handouts">2</option>
+                    <option value="books">3</option>
+                    <option value="notes">4</option>
+                  </Field>
+                </div>
+                <div className="my-2">
+                  <label className="input-label" htmlFor="upload-type">
+                    Assign To Grade
+                  </label>
+                  <GradeDropdown />
+                </div>
+                <div className="my-2">
+                  <label className="input-label" htmlFor="upload-type">
+                    Assign To Section
+                  </label>
+                  <Field
+                    type="text"
+                    id="upload-type"
+                    className="input w-full"
+                    name="to"
+                    as="select"
+                  >
+                    <option value="assignment">All</option>
+                    <option value="work-sheets">A</option>
+                    <option value="Handouts">B</option>
+                    <option value="books">C</option>
+                  </Field>
+                </div>
+                <div className="my-2">
+                  <label className="input-label" htmlFor="upload-type">
+                    Assign To Subject
+                  </label>
+                  <Field
+                    type="text"
+                    id="upload-type"
+                    className="input w-full"
+                    name="to"
+                    as="select"
+                  >
+                    <option value="assignment">English</option>
+                    <option value="work-sheets">Physics</option>
+                    <option value="Handouts">Civics</option>
+                  </Field>
+                </div>
+
+                <button type="submit" className="btn-primary">
+                  Submit
+                </button>
+              </fieldset>
+            </Form>
+          )}
+        </Formik>
+      </Modal>
       <div className="rounded-md border border-primary shadow self-start">
         <div className="px-2 pt-2">
           <img src={joker} alt="profile picture" width={300} height={300} />
@@ -53,8 +130,14 @@ export default function TeacherProfile() {
       <div className="flex-1">
         <div className="rounded-md border border-[#e4e4e7] shadow px-6 py-4">
           <table className="border-collapse w-full text-left text-sm">
-            <caption className="text-left text-primary font-semibold my-2 text-lg">
-              Teacher Information
+            <caption className="flex justify-between items-center">
+              <span className="text-left text-primary font-semibold my-2 text-lg">
+                Teacher Information
+              </span>
+
+              <button className="btn-primary" onClick={() => setIsOpen(true)}>
+                Assign
+              </button>
             </caption>
             <tbody>
               {examData.map((exam, index) => (
