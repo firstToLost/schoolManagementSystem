@@ -1,6 +1,5 @@
 import joker from "/joker.jpg";
 
-
 export default function StudentProfile() {
   return (
     <div className="margin-block margin-inline flex">

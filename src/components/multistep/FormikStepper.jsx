@@ -27,14 +27,14 @@ export default function FormikStepper({ children, ...props }) {
           <div className="flex gap-4">
             {step > 0 ? (
               <button
-                className="btn"
+                className="btn-primary"
                 type="button"
                 onClick={() => setStep(step - 1)}
               >
                 Back
               </button>
             ) : null}
-            <button className="btn" type="submit">
+            <button className="btn-primary" type="submit">
               {isLastStep() ? "Submit" : "Next"}
             </button>
           </div>

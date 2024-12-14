@@ -35,7 +35,6 @@ export default function Assessment() {
   ]);
   const handleSubmit = async () => {
     const data = {
-      ...config,
       questions,
     };
     console.log(data);
@@ -49,14 +48,14 @@ export default function Assessment() {
       questions.map((question) =>
         question.id === id
           ? {
-              ...question,
-              options: {
-                ...question.options,
-                [option]: answer,
-              },
-            }
-          : question
-      )
+            ...question,
+            options: {
+              ...question.options,
+              [option]: answer,
+            },
+          }
+          : question,
+      ),
     );
   };
   const handleQuestionChange = (e, id) => {
@@ -66,11 +65,11 @@ export default function Assessment() {
       questions.map((q) =>
         q.id === id
           ? {
-              ...q,
-              question,
-            }
-          : q
-      )
+            ...q,
+            question,
+          }
+          : q,
+      ),
     );
   };
   const handleAnswerChange = (e, id) => {
@@ -80,11 +79,11 @@ export default function Assessment() {
       questions.map((q) =>
         q.id === id
           ? {
-              ...q,
-              answer,
-            }
-          : q
-      )
+            ...q,
+            answer,
+          }
+          : q,
+      ),
     );
   };
   const handleFileChange = (e, id) => {
@@ -94,11 +93,11 @@ export default function Assessment() {
       questions.map((q) =>
         q.id === id
           ? {
-              ...q,
-              diagram,
-            }
-          : q
-      )
+            ...q,
+            diagram,
+          }
+          : q,
+      ),
     );
 
     const reader = new FileReader();
@@ -108,11 +107,11 @@ export default function Assessment() {
         questions.map((q) =>
           q.id === id
             ? {
-                ...q,
-                preview: reader.result,
-              }
-            : q
-        )
+              ...q,
+              preview: reader.result,
+            }
+            : q,
+        ),
       );
     };
 
@@ -123,18 +122,21 @@ export default function Assessment() {
 
   const deleteQuestion = (id) => {
     setQuestions((prevQuestions) =>
-      prevQuestions.filter((question) => question.id !== id)
+      prevQuestions.filter((question) => question.id !== id),
     );
   };
 
   return (
     <div className="h-main overflow-y-scroll p-3 scrollbar-hidden">
       {questions.map((el) => (
-        <div key={el.id} className="w-full glass p-4 my-3">
+        <div
+          key={el.id}
+          className="w-full rounded-md border border-[#e4e4e7] shadow  p-4 my-3"
+        >
           <textarea
             value={el.question}
             onChange={(e) => handleQuestionChange(e, el.id)}
-            className="w-full outline-none p-1 text-black"
+            className="input w-full outline-none p-1"
           ></textarea>
 
           {el.preview && (
@@ -144,10 +146,10 @@ export default function Assessment() {
               className="object-cover w-1/4 aspect-square"
             />
           )}
-          <div className="flex justify-between items-center">
+          <div className="my-2 flex justify-between items-center">
             <label
               htmlFor="file"
-              className="bg-white text-black cursor-pointer px-3 py-2"
+              className="btn-primary"
             >
               {el.preview ? "Change" : "Add"} Diagram
             </label>
@@ -159,13 +161,14 @@ export default function Assessment() {
             />
             <button
               onClick={() => deleteQuestion(el.id)}
-              className="text-black cursor-pointer w-12 aspect-square inline-flex items-center justify-center text-4xl rounded-full bg-white"
+              className="btn-primary flex items-center justify-center"
             >
-              <AiOutlineDelete />
+              <AiOutlineDelete className="text-lg" />
+              <span className="">Delete</span>
             </button>
           </div>
           <div className="my-4 grid-2-max grid grid-cols-2 grid-row gap-3 text-black">
-            <div className="bg-white px-1 flex gap-1 items-center">
+            <div className="bg-white px-1 flex gap-1 items-center input">
               <label htmlFor="optionA">A.</label>
               <input
                 type="text"
@@ -176,7 +179,7 @@ export default function Assessment() {
                 className="w-[95%] h-12 bg-transparent outline-none"
               />
             </div>
-            <div className="bg-white px-1 flex gap-1 items-center">
+            <div className="bg-white px-1 flex gap-1 items-center input">
               <label htmlFor="optionB">B.</label>
               <input
                 type="text"
@@ -187,7 +190,7 @@ export default function Assessment() {
                 className="w-[95%] h-12 bg-transparent outline-none"
               />
             </div>
-            <div className="bg-white px-1 flex gap-1 items-center">
+            <div className="bg-white px-1 flex gap-1 items-center input">
               <label htmlFor="optionC">C.</label>
               <input
                 type="text"
@@ -198,7 +201,7 @@ export default function Assessment() {
                 className="w-[95%] h-12 bg-transparent outline-none"
               />
             </div>
-            <div className="bg-white px-1 flex gap-1 items-center">
+            <div className="bg-white px-1 flex gap-1 items-center input">
               <label htmlFor="optionD">D.</label>
               <input
                 type="text"
@@ -210,12 +213,28 @@ export default function Assessment() {
               />
             </div>
           </div>
-
-          <input
-            type="text"
-            value={el.answer}
-            onChange={(e) => handleAnswerChange(e, el.id)}
-          />
+          <div className="flex gap-2">
+            <label htmlFor="answer">Answer: </label>
+            <select
+              className="input w-fit"
+              type="text"
+              value={el.answer}
+              onChange={(e) => handleAnswerChange(e, el.id)}
+            >
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+              <option value="d">D</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="explanation">Explanation(optional but recommended): </label>
+            <textarea
+              value={el.question}
+              onChange={(e) => handleQuestionChange(e, el.id)}
+              className="w-full outline-none p-1 text-black input"
+            ></textarea>
+          </div>
         </div>
       ))}
 
@@ -229,7 +248,7 @@ export default function Assessment() {
             },
           ])
         }
-        className="text-black cursor-pointer w-12 mx-auto my-2 aspect-square flex items-center justify-center text-4xl rounded-full bg-white"
+        className="btn-primary block mx-auto text-lg"
       >
         <AiOutlinePlus />
       </button>

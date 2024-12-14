@@ -5,7 +5,6 @@ import {
   AiOutlineBank,
   AiOutlineSchedule,
   AiOutlineBarChart,
-  AiOutlineSend,
   AiOutlineUpload,
   AiOutlineBook,
   AiOutlineUser,
@@ -29,6 +28,13 @@ export default function Sidebar() {
       to: "/dashboard/",
     },
     {
+      text: "Pay",
+      icon: (
+        <AiOutlineBank className="nav__link-icon text-lg w-6 flex-shrink-0 me-2 sm:me-0 bank-icon" />
+      ),
+      to: "/dashboard/pay",
+    },
+    {
       text: "Events",
       icon: (
         <AiOutlineBank className="nav__link-icon text-lg w-6 flex-shrink-0 me-2 sm:me-0 bank-icon" />
@@ -43,18 +49,18 @@ export default function Sidebar() {
       to: "/dashboard/schedule",
     },
     {
+      text: "Print",
+      icon: (
+        <AiOutlineSchedule className="nav__link-icon text-lg w-6 flex-shrink-0 me-2 sm:me-0 schedule-icon" />
+      ),
+      to: "/dashboard/print",
+    },
+    {
       text: "Results",
       icon: (
         <AiOutlineBarChart className="nav__link-icon text-lg w-6 flex-shrink-0 me-2 sm:me-0 BarChart-icon" />
       ),
       to: "/dashboard/result",
-    },
-    {
-      text: "Lesson Plan",
-      icon: (
-        <AiOutlineSend className="nav__link-icon text-lg w-6 flex-shrink-0 me-2 sm:me-0 BarChart-icon" />
-      ),
-      to: "/dashboard/send",
     },
     {
       text: "Upload",
@@ -129,9 +135,8 @@ export default function Sidebar() {
   ]);
   return (
     <aside
-      className={`${
-        isSidebarOpen ? "translate-x-10" : "-translate-x-full"
-      } sidebar bg-white z-[999] w-[250px] hover:w-[250px] rounded-2xl h-max sm:h-auto absolute top-1/2 -translate-y-1/2  sm:static sm:rounded-none sm:w-[85px] z-5 sm:translate-x-0 sm:translate-y-0 overflow-x-hidden overflow-y-scroll scrollbar-hidden  border border-[#e4e4e7] shadow`}
+      className={`${isSidebarOpen ? "translate-x-10" : "-translate-x-full"
+        } sidebar bg-white z-[999] w-[250px] hover:w-[250px] rounded-2xl h-[90dvh] sm:h-auto fixed top-1/2 -translate-y-1/2  sm:static sm:rounded-none sm:w-[85px] z-5 sm:translate-x-0 sm:translate-y-0 overflow-x-hidden overflow-y-scroll scrollbar-hidden  border border-[#e4e4e7] shadow`}
     >
       <div className="flex items-center gap-3 px-2 py-4 relative profile sm:justify-center">
         <img

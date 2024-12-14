@@ -14,7 +14,9 @@ export default function TopPanel() {
     <div className="flex mx-2 justify-between">
       <Breadcrumb />
       <div className="flex items-center gap-2">
-        <span onClick={logout}>logout</span>
+        <span onClick={logout} className="font-bold cursor-pointer">
+          logout
+        </span>
         <span
           className="toggle-btn cursor-pointer relative"
           onClick={toggleTheme}

@@ -20,7 +20,7 @@ const Calendar = () => {
 
   const daysInMonth = Array.from(
     { length: getDaysInMonth(year, month) },
-    (_, i) => i + 1
+    (_, i) => i + 1,
   );
   const firstDayOfMonth = getFirstDayOfMonth(year, month);
   const emptyDays = Array.from({ length: firstDayOfMonth }, (_, i) => i);
@@ -47,7 +47,7 @@ const Calendar = () => {
 
   const handleDateClick = (day) => {
     const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(
-      day
+      day,
     ).padStart(2, "0")}`;
     setSelectedDate(date);
     // alert(
@@ -83,7 +83,7 @@ const Calendar = () => {
         ))}
         {daysInMonth.map((day) => {
           const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(
-            day
+            day,
           ).padStart(2, "0")}`;
           const attended = attendanceData[date];
           return (

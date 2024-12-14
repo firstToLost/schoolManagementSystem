@@ -21,5 +21,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </DarkModeProvider>
       </BrowserRouter>
     </AuthProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -42,8 +42,8 @@ const COLORS = ["#00C49F", "#FF8042"];
 export default function Attendance() {
   return (
     <div className="p-3">
-      <div className="flex">
-        <div className="glass h-[350px] w-[350px] flex-col sm:flex-row">
+      <div className="flex max-sm:flex-col">
+        <div className="h-[350px] w-full flex-col sm:flex-row">
           <ResponsiveContainer>
             <PieChart>
               <Pie

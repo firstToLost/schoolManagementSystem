@@ -15,8 +15,8 @@ export default function Table() {
 
     setStudents(
       students.map((student) =>
-        student.id === id ? { ...student, score } : student
-      )
+        student.id === id ? { ...student, score } : student,
+      ),
     );
   }
   return (
@@ -49,7 +49,7 @@ export default function Table() {
           <tbody>
             {students
               .filter((student) =>
-                student.first_name.toLowerCase().includes(query)
+                student.first_name.toLowerCase().includes(query),
               )
               .map((student, i) => (
                 <tr key={student.id} className="td-row">

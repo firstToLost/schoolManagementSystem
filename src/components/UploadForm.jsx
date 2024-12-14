@@ -17,17 +17,17 @@ export default function UploadForm() {
       ? async (values) => {
           try {
             console.log(values);
-            const response = await api.post("/get/students/class/", values);
-            console.log(response);
+            // const response = await api.post("/get/students/class/", values);
+            // console.log(response);
             navigate("/dashboard/result/manually/upload", {
-              state: { student: response.data },
+              state: { student: studentMockUp },
             });
           } catch (error) {
             console.error(error);
           }
         }
       : async (values) => {
-          navigate("/dashboard/result/upload-file/upload");
+          navigate("/dashboard/result/upload/upload");
 
           const response = await api.post("/get/excel/", values, {
             responseType: "blob",
@@ -80,7 +80,7 @@ export default function UploadForm() {
         initialValues={initialValues}
         validationSchema={validationSchema}
       >
-        <Form className="glass rounded-md p-4 my-2 h-fit  border border-[#e4e4e7] shadow">
+        <Form className="rounded-md p-4 my-2 border border-[#e4e4e7] shadow">
           <div className="flex justify-between flex-col sm:flex-row gap-x-3">
             <fieldset className="w-full sm:w-1/2">
               {/* grade */}

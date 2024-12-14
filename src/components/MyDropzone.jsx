@@ -11,7 +11,7 @@ export default function MyDropzone({ setter, state }) {
 
   return (
     <div
-      className="w-full h-full flex flex-col justify-center border border-dashed border-[#e4e4e7] shadow rounded-md items-center px-4"
+      className="w-full h-full flex flex-col justify-center border border-dashed border-[#e4e4e7] shadow-2xl rounded-md items-center px-4"
       {...getRootProps()}
     >
       <input {...getInputProps()} />
@@ -26,7 +26,7 @@ export default function MyDropzone({ setter, state }) {
             Drag {"'n'"} drop some files here, or click to select files
           </p>
           <span className="my-2.5 font-medium">or</span>
-          <button className="cursor-pointer text-xl py-3 px-6 bg-white rounded-md text-black font-semibold">
+          <button className="shadow-xl cursor-pointer text-xl py-3 px-6 bg-white rounded-md text-black font-semibold">
             Select File
           </button>
         </>

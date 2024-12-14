@@ -30,7 +30,7 @@ const Step1 = () => {
           Student Age
         </label>
         <input
-          className="block w-full py-2 rounded focus:outline-none px-7"
+          className="input"
           type="number"
           id="age"
           placeholder="Age"
@@ -45,7 +45,7 @@ const Step1 = () => {
           Student Grade
         </label>
         <input
-          className="block w-full py-2 rounded focus:outline-none px-7"
+          className="input"
           type="text"
           id="grade"
           placeholder="Grade"

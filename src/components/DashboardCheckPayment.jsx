@@ -96,20 +96,23 @@ function DashboardCheckPayment() {
           <span>Status</span>
         </div>
         {studentMockUp.map((row, i) => (
-          <div className="input my-2 flex justify-between" key={i}>
+          <div
+            className="border border-primary my-2 py-2 px-4 flex justify-between"
+            key={i}
+          >
             <span className="w-[30%]">{`${row.first_name} ${row.last_name}`}</span>
             <span>
               12<sup>th</sup>
             </span>
             <div className="w-[10%]">
-              <span
+              <button
                 type="button"
                 className={`${
                   row.present ? "bg-[#0f0]" : "bg-[#f00]"
                 } rounded-2xl font-semibold py-1 px-3 text-sm`}
               >
                 {row.present ? "Paid" : "Unpaid"}
-              </span>
+              </button>
             </div>
           </div>
         ))}

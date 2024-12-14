@@ -1,31 +1,29 @@
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineLock } from "react-icons/ai";
+import BigLoader from "../../BigLoader";
+import useFetch from "../../../hooks/useFetch";
 export default function Assessments() {
+  const { error, isLoading, retry } = useFetch("lol", 2000, 3000);
   const examData = [
     {
-      name: "Liren",
-      createdAt: "Ding",
-      startsAt: "2024-10-01",
-      course: "Mathematics",
-      endsAt: "Phd",
+      title: "Biology First Exam",
+      startDate: "0-1-2000",
+      endDate: "11-12-2009",
     },
     {
-      name: "Izuku",
-      createdAt: "Midoriya",
-      startsAt: "2024-11-01",
-      course: "Physics",
-      endsAt: "Masters",
+      title: "Biology First Exam",
+      startDate: "0-1-2000",
+      endDate: "11-12-2009",
     },
+
     {
-      name: "Kakashi",
-      createdAt: "Hatake",
-      startsAt: "2024-12-01",
-      course: "History",
-      endsAt: "Professor",
+      title: "Biology First Exam",
+      startDate: "0-1-2000",
+      endDate: "11-12-2009",
     },
   ];
   const navigate = useNavigate();
-  return (
+  return isLoading ? <BigLoader err={error} retry={retry} /> : (
     <div className="h-main p-3">
       <Link to="add">
         <button className="btn-primary">Add Assessments</button>
@@ -36,20 +34,15 @@ export default function Assessments() {
           <thead>
             <tr className="after:bg-gray-400 after:content-[''] after:w-full after:absolute after:left-0 after:bottom-0 after:h-[2px] relative">
               <th>
-                <span className="px-2 block">First Name</span>
+                <span className="px-2 block">Title</span>
               </th>
               <th>
-                <span className="px-2 block">Last Name</span>
+                <span className="px-2 block">Start Date</span>
               </th>
               <th>
-                <span className="px-2 block">Starts</span>
+                <span className="px-2 block">End Date</span>
               </th>
-              <th>
-                <span className="px-2 block">Course</span>
-              </th>
-              <th>
-                <span className="px-2 block">Degree</span>
-              </th>
+
               <th>
                 <span className="px-2 block">Actions</span>
               </th>
@@ -63,38 +56,35 @@ export default function Assessments() {
               >
                 <td>
                   <span className="py-2 font-semibold px-2 block">
-                    {exam.name}
+                    {exam.title}
                   </span>
                 </td>
                 <td>
                   <span className="py-2 font-semibold px-2 block">
-                    {exam.createdAt}
+                    {exam.startDate}
                   </span>
                 </td>
                 <td>
                   <span className="py-2 font-semibold px-2 block">
-                    {exam.startsAt}
+                    {exam.endDate}
                   </span>
                 </td>
                 <td>
                   <span className="py-2 font-semibold px-2 block">
-                    {exam.course}
-                  </span>
-                </td>
-                <td>
-                  <span className="py-2 font-semibold px-2 block">
-                    {exam.endsAt}
-                  </span>
-                </td>
-                <td>
-                  <span className="py-2 font-semibold px-2 block">
-                    <button className="text-primary py-2 px-4 rounded-s border border-y-primary border-l-primary  select-none">
+                    <button
+                      onClick={() =>
+                        navigate("/dashboard/assessment/edit", {
+                          state: { values: "ll" },
+                        })
+                      }
+                      className="text-primary py-2 px-4 rounded-s border border-y-primary border-l-primary  select-none"
+                    >
                       <AiOutlineLock className="inline" />
-                      Attendance
+                      Edit
                     </button>
                     <button
                       className="text-primary py-2 px-4 rounded-e border border-primary select-none"
-                      onClick={() => navigate("/dashboard/teachers/profile")}
+                      onClick={() => navigate("/dashboard/assessment/view")}
                     >
                       View
                     </button>

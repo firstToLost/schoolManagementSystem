@@ -11,7 +11,7 @@ const Step1 = () => {
           First Name
         </label>
         <input
-          className="block w-full py-2 rounded focus:outline-none px-7"
+          className="input"
           type="text"
           id="firstName"
           placeholder="First Name"
@@ -41,7 +41,7 @@ const Step1 = () => {
           Last Name
         </label>
         <input
-          className="block w-full py-2 rounded focus:outline-none px-7"
+          className="input"
           type="text"
           id="lastName"
           placeholder="last Name"

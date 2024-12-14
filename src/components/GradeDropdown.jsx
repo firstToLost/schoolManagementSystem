@@ -1,6 +1,6 @@
-function GradeDropdown({id}) {
+function GradeDropdown({ id }) {
   return (
-    <select as="select" name="grade" className="input w-full" id={id}>
+    <>
       <option value="">Select Grade</option>
       <option value="nursery">nursery</option>
       <option value="lkg">LKG</option>
@@ -17,7 +17,7 @@ function GradeDropdown({id}) {
       <option value="10">10th Grade</option>
       <option value="11">11th Grade</option>
       <option value="12">12th Grade</option>
-    </select>
+    </>
   );
 }
 

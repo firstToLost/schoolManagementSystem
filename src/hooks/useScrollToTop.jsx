@@ -9,6 +9,6 @@ const useScrollToTop = () => {
   }, [location]);
 
   return null;
-}
+};
 
 export default useScrollToTop;

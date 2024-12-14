@@ -1,8 +1,8 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 // Helper function to get Ethiopian months
 
-import '../styles/Calendar.css'
+import "../styles/Calendar.css";
 const getEthiopianMonths = () => [
   "Meskerem",
   "Yekatit",
@@ -78,7 +78,7 @@ const EthiopianCalendar = () => {
             setMonth(
               months[
                 (months.indexOf(month) - 1 + months.length) % months.length
-              ]
+              ],
             )
           }
         >

@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from "../api/axios";
+import InlineLoader from "../components/InlineLoader.jsx";
 
 import { LogInSchema } from "../constants/validationSchema";
 import { LogInValues } from "../constants/initialValues";
@@ -15,7 +16,7 @@ const Login = () => {
 
   const handleSubmit = async (
     values,
-    { setSubmitting, setErrors, setStatus }
+    { setSubmitting, setErrors, setStatus },
   ) => {
     try {
       const response = await axios.post("/login/", values, {
@@ -115,14 +116,16 @@ const Login = () => {
                   <span className="text-primary">Remember Me</span>
                 </div>
 
-                {status && <div className="text-red-400">{status}</div>}
+                {status && !isSubmitting && (
+                  <div className="text-red-400">{status}</div>
+                )}
                 <div className="text-start mt-4">
                   <button
-                    className="btn-primary w-full"
+                    className={`${isSubmitting && "bg-opacity-40 cursor-not-allowed"} btn-primary w-full flex items-center justify-center`}
                     type="submit"
                     disabled={isSubmitting}
                   >
-                    Login
+                    {isSubmitting ? <InlineLoader /> : " Login"}
                   </button>
                 </div>
 

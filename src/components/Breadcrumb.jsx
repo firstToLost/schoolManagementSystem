@@ -23,7 +23,17 @@ export default function Breadcrumb() {
 
       {currentLocation.map((location, i) => (
         <div className="flex items-center" key={i}>
-          <span className="text-sm font-semibold text-primary">{location}</span>
+          {currentLocation.length < 3 ? (
+            <span className="text-sm font-semibold text-primary">
+              {location}
+            </span>
+          ) : i !== currentLocation.length - 1 ? (
+            "..."
+          ) : (
+            <span className="text-sm font-semibold text-primary">
+              {location}
+            </span>
+          )}
           {i !== currentLocation.length - 1 && <MdKeyboardArrowRight />}
         </div>
       ))}

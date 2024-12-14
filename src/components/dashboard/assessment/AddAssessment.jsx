@@ -38,14 +38,14 @@ export default function AddAssessment() {
   return (
     <div className="p-3 h-main">
       <Formik onSubmit={onSubmit} initialValues={initialValues}>
-        <Form className="glass p-3">
-          <div>
+        <Form className="h-full overflow-scroll rounded-md border border-[#e4e4e7] shadow px-8 pt-2 pb-8">
+          <div className="my-2">
             <label className="input-label" htmlFor="title">
               Title
             </label>
             <Field name="title" className="input" id="title" />
           </div>
-          <div>
+          <div className="my-2">
             <label className="input-label" htmlFor="title">
               Test type
             </label>
@@ -54,7 +54,14 @@ export default function AddAssessment() {
               <option value="scheduled">Scheduled</option>
             </Field>
           </div>
-          <div>
+          <div className="my-2">
+            <label className="input-label" htmlFor="allowed-time">
+              Allowed Time(minute)
+            </label>
+            <Field name="test_type" className="input" id="allowed-time" type="number" />
+          </div>
+
+          <div className="my-2">
             <label className="input-label" htmlFor="grade">
               Grade
             </label>
@@ -77,9 +84,9 @@ export default function AddAssessment() {
               <option value="12">12th Grade</option>
             </Field>
           </div>
-          <div>
+          <div className="my-2">
             <label className="input-label" htmlFor="subject">
-              Grade
+              Subject
             </label>
             <Field name="subject" className="input" id="subject" as="select">
               <option value="">Select Subject</option>
@@ -92,7 +99,7 @@ export default function AddAssessment() {
             </Field>
           </div>
           <div>
-            <div>
+            <div className="my-2">
               <label className="input-label" htmlFor="from">
                 From
               </label>
@@ -103,14 +110,14 @@ export default function AddAssessment() {
                 id="from"
               />
             </div>
-            <div>
+            <div className="my-2">
               <label className="input-label" htmlFor="to">
                 To
               </label>
               <Field name="test_end" type="date" className="input" id="to" />
             </div>
           </div>
-          <div>
+          <div className="my-2">
             <label className="input-label" htmlFor="out-of">
               Out of
             </label>

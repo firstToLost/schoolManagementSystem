@@ -114,7 +114,7 @@ export default function DashboardHome() {
   ];
 
   return (
-    <div className="p-3">
+    <div className="p-3 h-main overflow-y-scroll">
       <div className="flex justify-between w-full my-1 gap-2 flex-wrap  sm:flex-nowrap">
         <div className="w-full sm:w-1/2 h-[250px] rounded-xl border border-[#e4e4e7] shadow">
           <ResponsiveContainer>
@@ -135,7 +135,7 @@ export default function DashboardHome() {
                   <Cell
                     key={`cell-${index}`}
                     fill={`#${Math.floor(Math.random() * 16777215).toString(
-                      16
+                      16,
                     )}`}
                   />
                 ))}

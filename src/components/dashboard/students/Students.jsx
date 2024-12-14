@@ -38,7 +38,15 @@ export default function Students() {
         <Formik>
           <Form className="flex w-full gap-4 items-center">
             <div className="my-2 w-1/5">
-              <GradeDropdown />
+              <Field
+                type="text"
+                id="upload-type"
+                className="input w-full"
+                name="grade"
+                as="select"
+              >
+                <GradeDropdown />
+              </Field>
             </div>
             <div className="my-2 w-1/5">
               <Field

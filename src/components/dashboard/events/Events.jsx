@@ -21,63 +21,65 @@ export default function Events() {
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
           {({ values }) => (
-            <Form className="flex glass rounded-md w-[600px] p-4 justify-between gap-3 bg-babyBlue-bg">
-              <fieldset className="w-1/2">
-                <div className="my-2">
-                  <label className="input-label" htmlFor="title" name="title">
-                    Title
-                  </label>
-                  <Field
-                    className="input w-full"
-                    type="text"
-                    id="title"
-                    name="title"
-                  />
-                </div>
-                <div className="my-2">
-                  <label className="input-label" htmlFor="description">
-                    Description
-                  </label>
-                  <Field
-                    className="input w-full"
-                    type="text"
-                    id="description"
-                    name="description"
-                    as="textarea"
-                  />
-                </div>
-                <div className="my-2">
-                  <label className="input-label" htmlFor="upload-type">
-                    To
-                  </label>
-                  <Field
-                    type="text"
-                    id="upload-type"
-                    className="input w-full"
-                    name="to"
-                    as="select"
-                  >
-                    <option value="assignment">Assignment</option>
-                    <option value="work-sheets">Work sheets</option>
-                    <option value="Handouts">Handouts</option>
-                    <option value="books">Books</option>
-                    <option value="notes">Notes</option>
-                  </Field>
-                </div>
+            <Form className="max-sm:w-screen h-max p-4">
+              <div className="flex max-sm:flex-col rounded-md  sm:w-[600px] p-4 justify-between gap-3 bg-babyBlue-bg">
+                <fieldset className="sm:w-1/2 ">
+                  <div className="my-2">
+                    <label className="input-label" htmlFor="title" name="title">
+                      Title
+                    </label>
+                    <Field
+                      className="input w-full"
+                      type="text"
+                      id="title"
+                      name="title"
+                    />
+                  </div>
+                  <div className="my-2">
+                    <label className="input-label" htmlFor="description">
+                      Description
+                    </label>
+                    <Field
+                      className="input w-full"
+                      type="text"
+                      id="description"
+                      name="description"
+                      as="textarea"
+                    />
+                  </div>
+                  <div className="my-2">
+                    <label className="input-label" htmlFor="upload-type">
+                      To
+                    </label>
+                    <Field
+                      type="text"
+                      id="upload-type"
+                      className="input w-full"
+                      name="to"
+                      as="select"
+                    >
+                      <option value="assignment">Assignment</option>
+                      <option value="work-sheets">Work sheets</option>
+                      <option value="Handouts">Handouts</option>
+                      <option value="books">Books</option>
+                      <option value="notes">Notes</option>
+                    </Field>
+                  </div>
 
-                <button type="submit" className="btn-primary">
-                  Submit
-                </button>
-              </fieldset>
-              <fieldset className="w-1/2">
-                <MyDropzone />
-              </fieldset>
+                  <button type="submit" className="btn-primary">
+                    Submit
+                  </button>
+                </fieldset>
+                <fieldset className="sm:w-1/2">
+                  <MyDropzone />
+                </fieldset>
+              </div>
             </Form>
           )}
         </Formik>
       </Modal>
-      <div className="flex gap-3">
-        <div className="rounded-md w-1/2 border border-[#e4e4e7] shadow px-8 pt-2 pb-8 my-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="rounded-md w-full sm:w-1/2 border border-[#e4e4e7] shadow px-8 pt-2 pb-8 my-3">
           <table className="border-collapse w-full text-left text-sm">
             <caption className="py-2">
               <p className="text-2xl font-bold text-left text-primary">
@@ -109,7 +111,7 @@ export default function Events() {
             </tbody>
           </table>
         </div>
-        <div className="rounded-md w-1/2 border border-[#e4e4e7] shadow px-8 p-2 my-3">
+        <div className="rounded-md w-full sm:w-1/2  border border-[#e4e4e7] shadow px-8 p-2 sm:my-3">
           <p className="text-2xl font-bold text-left text-primary my-4">
             Upcoming Events
           </p>

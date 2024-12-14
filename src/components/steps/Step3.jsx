@@ -12,7 +12,7 @@ const Step2 = () => {
           Kebele
         </label>
         <input
-          className="block w-full py-2 rounded focus:outline-none px-7"
+          className="input"
           type="text"
           id="kebele"
           placeholder="Kebele"
@@ -26,7 +26,7 @@ const Step2 = () => {
           Mender
         </label>
         <input
-          className="block w-full py-2 rounded focus:outline-none px-7"
+          className="input"
           type="text"
           id="mender"
           placeholder="Mender"

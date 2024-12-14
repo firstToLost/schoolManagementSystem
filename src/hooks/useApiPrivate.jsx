@@ -14,7 +14,7 @@ export default function useApiPrivate() {
         }
         return config;
       },
-      (error) => Promise.reject(error)
+      (error) => Promise.reject(error),
     );
 
     const responseInterceptors = api.interceptors.response.use(
@@ -28,7 +28,7 @@ export default function useApiPrivate() {
           return api(prevRequest);
         }
         return Promise.reject(error);
-      }
+      },
     );
     return () => {
       api.interceptors.response.eject(responseInterceptors);

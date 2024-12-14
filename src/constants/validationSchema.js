@@ -95,4 +95,40 @@ const LogInSchema = Yup.object({
   user_id: Yup.string().required("can't be empty"),
   password: Yup.string().required("can't be empty"),
 });
-export { nameSchema, demographicSchema, addressSchema, imageSchema, LogInSchema,initialValues };
+
+const guardianSchema = Yup.object().shape({
+  guardianFullName: Yup.string().required("Guardian name is required"),
+  relationship: Yup.string().required("Relationship to student is required"),
+  homeAddress: Yup.string().required("Home address is required"),
+  city: Yup.string().required("City is required"),
+  state: Yup.string().required("State is required"),
+  zipCode: Yup.string()
+    .required("Zip code is required")
+    .matches(/^\d{5}$/, "Zip code must be exactly 5 digits"),
+  homePhone: Yup.string().required("Home phone number is required"),
+  workPhone: Yup.string().optional(),
+  cellPhone: Yup.string().optional(),
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  residencyStatus: Yup.boolean().required("Residency status is required"),
+  custodyDocuments: Yup.boolean().optional(),
+  emergencyContactName: Yup.string().required(
+    "Emergency contact name is required",
+  ),
+  emergencyContactRelationship: Yup.string().required(
+    "Emergency contact relationship is required",
+  ),
+  emergencyContactPhone: Yup.string().required(
+    "Emergency contact phone number is required",
+  ),
+});
+
+export {
+  nameSchema,
+  demographicSchema,
+  addressSchema,
+  imageSchema,
+  LogInSchema,
+  initialValues,
+};

@@ -1,33 +1,26 @@
 import Table from "../../Table";
-import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { studentMockUp } from "../../../api/axios";
 
 export default function UploadManually() {
-  const [students, setStudents] = useState(useLocation().state.studentMockUp);
-  function handleScore(e, id, setter) {
-    // const output = students.slice();
-    // output[e.target.id]["score"] = parseInt(e.target.value);
-    const score = parseInt(e.target.value) || null;
-
-    setter(
-      students.map((student) =>
-        student.id === id ? { ...student, score } : student
-      )
-    );
-  }
+  const [students, setStudents] = useState(studentMockUp);
   const headers = [
     {
       key: "first_name",
-      label: "Name",
+      label: "First Name",
     },
     {
-      key: "gender",
-      label: "Gender",
+      key: "last_name",
+      label: "Last Name",
     },
-    {
-      key: "grade",
-      label: "Grade",
-    },
+    // {
+    //   key: "gender",
+    //   label: "Gender",
+    // },
+    // {
+    //   key: "grade",
+    //   label: "Grade",
+    // },
     {
       key: "result",
       label: "Result",
@@ -47,7 +40,6 @@ export default function UploadManually() {
       setter={setStudents}
       headers={headers}
       edit={"B"}
-      handler={handleScore}
     />
   );
 }

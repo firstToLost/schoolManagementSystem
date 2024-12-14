@@ -4,7 +4,7 @@ import "../styles/Table.css";
 export default function Table({ headers, data, handler, setter }) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState({
-    keyToSort: headers[1].key,
+    keyToSort: headers[0].key,
     direction: "asc",
   });
 
@@ -24,13 +24,13 @@ export default function Table({ headers, data, handler, setter }) {
   function sortArray(arr) {
     if (sort.direction === "asc")
       return arr.sort((a, b) =>
-        a[sort.keyToSort] > b[sort.keyToSort] ? 1 : -1
+        a[sort.keyToSort] > b[sort.keyToSort] ? 1 : -1,
       );
     return arr.sort((a, b) => (a[sort.keyToSort] > b[sort.keyToSort] ? -1 : 1));
   }
 
   return (
-    <div className="rounded-xl border border-[#e4e4e7] shadow px-8 my-3">
+    <div className="rounded-xl border border-[#e4e4e7] px-3 shadow sm:px-8 my-3">
       <table className="border-collapse w-full text-left text-sm table-auto">
         <caption className="py-4 text-left">
           <div className="ts-inp-container relative flex width w-fit items-center">
@@ -59,9 +59,11 @@ export default function Table({ headers, data, handler, setter }) {
         </thead>
         <tbody>
           {sortArray(data)
-            .filter((row) => row.first_name.toLowerCase().includes(query))
+            .filter((row) =>
+              row.fullname ? row.fullname.toLowerCase().includes(query) : [],
+            )
             .map((row, i) => (
-              <tr key={row.id} className="td-row relative">
+              <tr key={row.student_id} className="td-row relative">
                 {headers.map((header, i) =>
                   header.key === "present" ? (
                     <td key={i}>
@@ -69,7 +71,7 @@ export default function Table({ headers, data, handler, setter }) {
                         type="button"
                         className={`${row.present ? "bg-[#0f0]" : "bg-[#f00]"}
                       rounded-2xl font-semibold py-1 px-3 cursor-pointer text-sm`}
-                        onClick={(e) => handler(e, row.id, setter)}
+                        onClick={(e) => handler(e, row.student_id, setter)}
                       >
                         {row.present ? "present" : "absent"}
                       </button>
@@ -77,7 +79,7 @@ export default function Table({ headers, data, handler, setter }) {
                   ) : header.key === "score" ? (
                     <td className="font-medium text-black" key={i}>
                       <input
-                        className="focus:outline-none "
+                        className="focus:outline-none w-[50px]"
                         type="number"
                         onChange={(e) => handler(e, row.id, setter)}
                         value={row.score}
@@ -92,7 +94,7 @@ export default function Table({ headers, data, handler, setter }) {
                     <td className="font-medium py-2" key={i}>
                       {row[header.key]}
                     </td>
-                  )
+                  ),
                 )}
               </tr>
             ))}

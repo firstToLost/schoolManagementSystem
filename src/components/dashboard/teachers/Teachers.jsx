@@ -88,7 +88,10 @@ export default function Teachers() {
                 </td>
                 <td>
                   <span className="py-2 font-semibold px-2 block">
-                    <button className="text-primary py-2 px-4 rounded-s border border-y-primary border-l-primary  select-none">
+                    <button
+                      className="text-primary py-2 px-4 rounded-s border border-y-primary border-l-primary  select-none"
+                      onClick={() => navigate("/dashboard/teachers/attendance")}
+                    >
                       <AiOutlineLock className="inline" />
                       Attendance
                     </button>

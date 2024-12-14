@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineLock } from "react-icons/ai";
 export default function ModifyResult() {
+  const navigate = useNavigate();
   const examData = [
     {
       name: "Math Final Exam",
@@ -83,7 +84,7 @@ export default function ModifyResult() {
                 </td>
                 <td>
                   <span className="py-2 font-semibold px-2 block">
-                    <button className="text-primary py-2 px-4 rounded-s border border-y-primary border-l-primary  select-none">
+                    <button className="text-primary py-2 px-4 rounded-s border border-y-primary border-l-primary  select-none" onClick={() => navigate("upload")}>
                       <AiOutlineLock className="inline" />
                       Modify
                     </button>
@@ -101,4 +102,3 @@ export default function ModifyResult() {
   );
 }
 
-import React from "react";

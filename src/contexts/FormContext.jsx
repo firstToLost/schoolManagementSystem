@@ -38,12 +38,12 @@ export const FormProvider = ({ children }) => {
       type === "checkbox"
         ? e.target.checked
         : type === "file"
-        ? URL.createObjectURL(e.target.files[0])
-        : e.target.value;
+          ? URL.createObjectURL(e.target.files[0])
+          : e.target.value;
 
     setFormData((prevData) => {
       const updatedData = prevData.map((data, i) =>
-        page === i ? { ...data, [name]: value } : data
+        page === i ? { ...data, [name]: value } : data,
       );
       return updatedData;
     });

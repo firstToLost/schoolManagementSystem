@@ -9,7 +9,7 @@ export default function Result() {
       {/* upload navigation */}
 
       <div className="flex justify-between">
-        <Link to="upload-file">
+        <Link to="upload">
           <button className="btn-primary flex items-center gap-2">
             <AiOutlinePlusCircle />
             <span>Upload</span>

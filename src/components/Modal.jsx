@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         {children}
       </div>
     </>,
-    document.getElementById("portal")
+    document.getElementById("portal"),
   );
 };
 
